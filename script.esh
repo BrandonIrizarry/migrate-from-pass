@@ -1,0 +1,7 @@
+setq buffer $(get-buffer-create "all")
+
+for file in * {
+setq short-file $(file-name-base file) > /dev/null
+setq output { gpg -d $short-file.gpg } > /dev/null
+echo $(mapconcat #'identity (cons (format "\n\n* %s" short-file) (nthcdr 3 output)) "\n")
+}
