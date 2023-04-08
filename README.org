@@ -1,0 +1,10 @@
+* Summary
+This script decrypts the contents of my password store (as managed by
+the ~pass~ program) and outputs the result to Eshell.
+
+At the Eshell top-level, one can then append this to an existing
+buffer using Eshell's buffer redirection operator (~>>>~).
+
+Certain assumptions are made about the environment. I leave it as an
+exercise to the reader to figure out under which distro this was
+written. 😀
