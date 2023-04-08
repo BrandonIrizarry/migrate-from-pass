@@ -1,7 +1,9 @@
 setq buffer $(get-buffer-create "all")
+setq dir "/home/demo/.password-store/personal"
 
-for file in * {
+for file in $dir/* {
 setq short-file $(file-name-base file) > /dev/null
-setq output { gpg -d $short-file.gpg } > /dev/null
-echo $(mapconcat #'identity (cons (format "\n\n* %s" short-file) (nthcdr 3 output)) "\n")
+setq output { gpg -d $(format "%s/%s.gpg" dir short-file) } > /dev/null
+setq org-header $(format "\n\n* %s" short-file) > /dev/null
+echo $(mapconcat #'identity (cons org-header (nthcdr 3 output)) "\n")
 }
