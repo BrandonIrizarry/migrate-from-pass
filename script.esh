@@ -1,4 +1,3 @@
-setq buffer $(get-buffer-create "all")
 setq dir "/home/demo/.password-store/personal"
 
 for file in $dir/* {
